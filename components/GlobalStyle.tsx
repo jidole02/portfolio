@@ -7,16 +7,16 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const currentThema = useRecoilValue(themaState);
-
-  console.log(currentThema);
-
   return (
     <div>
       {children}
       <style jsx global>
         {`
           * {
-            color: blue;
+            transition: 0.3s;
+          }
+          :root {
+            --main-text-color: ${currentThema === "light" ? "black" : "blue"};
           }
         `}
       </style>
