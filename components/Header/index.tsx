@@ -1,5 +1,7 @@
 import { useRecoilState } from "recoil";
 import { themaState } from "./../../recoil/atom";
+import styled from "@emotion/styled";
+import ThemaToggleButton from "./ThemaToggleButton";
 
 const Header = () => {
   const [thema, setThema] = useRecoilState(themaState);
@@ -9,10 +11,15 @@ const Header = () => {
   };
 
   return (
-    <div>
-      <button onClick={changeThema}>테마 변경</button>
-    </div>
+    <Wrapper>
+      <ThemaToggleButton />
+    </Wrapper>
   );
 };
 
 export default Header;
+
+const Wrapper = styled.header`
+  width: 100%;
+  padding-top: 35px;
+`;
