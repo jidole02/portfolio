@@ -1,25 +1,35 @@
 import styled from "@emotion/styled";
-import Email from "../../assets/email";
 import Facebook from "../../assets/facebook";
 import Github from "../../assets/github";
-import Phone from "../../assets/phone";
+import Insta from "../../assets/insta";
 import { keyframes } from "@emotion/react";
+import { ReactElement } from "react";
+
+const Button = ({
+  children,
+  adress,
+}: {
+  children: ReactElement;
+  adress: string;
+}) => {
+  const copyAdress = () => {
+    window.open(adress);
+  };
+  return <button onClick={copyAdress}>{children}</button>;
+};
 
 const Contact = () => {
   return (
     <Wrapper>
-      <button>
-        <Github />
-      </button>
-      <button>
-        <Email />
-      </button>
-      <button>
-        <Facebook />
-      </button>
-      <button>
-        <Phone />
-      </button>
+      <Button children={<Github />} adress="https://github.com/jidole02" />
+      <Button
+        children={<Facebook />}
+        adress="https://www.facebook.com/profile.php?id=100012148756964"
+      />
+      <Button
+        children={<Insta />}
+        adress="https://www.instagram.com/jidole041214/"
+      />
     </Wrapper>
   );
 };
@@ -51,6 +61,9 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    &:hover {
+      box-shadow: 0px 0px 10px rgb(255, 255, 255, 0.6);
+    }
     & svg {
       & path {
         fill: var(--sub-color);

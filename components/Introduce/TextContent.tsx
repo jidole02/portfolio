@@ -34,11 +34,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   * {
     opacity: 0;
+    animation: ${textAnime} 1s;
   }
   & .top-intro {
     color: var(--base-text-color);
     font-size: 25px;
-    animation: ${textAnime} 1s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
   }
@@ -48,7 +48,6 @@ const Wrapper = styled.div`
     font-size: 25px;
     font-weight: 400;
     text-transform: uppercase;
-    animation: ${textAnime} 1s;
     animation-delay: 1.5s;
     animation-fill-mode: forwards;
   }
@@ -57,13 +56,12 @@ const Wrapper = styled.div`
     font-size: 50px;
     font-weight: 400;
     margin-top: 30px;
-    animation: ${textAnime} 1s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
     & b {
       font-weight: 700;
       color: var(--base-text-color);
-      animation: ${textAnime} 1s;
+
       animation-delay: 2s;
       animation-fill-mode: forwards;
     }
@@ -72,7 +70,6 @@ const Wrapper = styled.div`
     color: var(--sub-color);
     margin-top: 50px;
     font-size: 20px;
-    animation: ${textAnime} 1s;
     animation-delay: 3s;
     animation-fill-mode: forwards;
   }
