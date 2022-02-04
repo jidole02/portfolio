@@ -3,6 +3,7 @@ import Email from "../../assets/email";
 import Facebook from "../../assets/facebook";
 import Github from "../../assets/github";
 import Phone from "../../assets/phone";
+import { keyframes } from "@emotion/react";
 
 const Contact = () => {
   return (
@@ -25,9 +26,22 @@ const Contact = () => {
 
 export default Contact;
 
+const wrapperAnime = keyframes`
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
+`;
+
 const Wrapper = styled.div`
   display: flex;
   gap: 30px;
+  opacity: 0;
+  animation: ${wrapperAnime} 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 3s;
   & button {
     width: 60px;
     height: 60px;

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { keyframes } from "@emotion/react";
 
 const TextContent = () => {
   return (
@@ -19,12 +20,27 @@ const TextContent = () => {
 
 export default TextContent;
 
+const textAnime = keyframes`
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  * {
+    opacity: 0;
+  }
   & .top-intro {
     color: var(--base-text-color);
     font-size: 25px;
+    animation: ${textAnime} 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
   }
   & .field {
     color: var(--main-color);
@@ -32,20 +48,32 @@ const Wrapper = styled.div`
     font-size: 25px;
     font-weight: 400;
     text-transform: uppercase;
+    animation: ${textAnime} 1s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
   }
   & .name {
     color: var(--base-text-color);
     font-size: 50px;
     font-weight: 400;
     margin-top: 30px;
+    animation: ${textAnime} 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
     & b {
       font-weight: 700;
       color: var(--base-text-color);
+      animation: ${textAnime} 1s;
+      animation-delay: 2s;
+      animation-fill-mode: forwards;
     }
   }
   & .my-description {
     color: var(--sub-color);
     margin-top: 50px;
     font-size: 20px;
+    animation: ${textAnime} 1s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
   }
 `;

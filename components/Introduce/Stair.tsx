@@ -34,12 +34,12 @@ const Wrapper = styled.div`
   margin-top: 200px;
 `;
 
-const stairAnime = ({ index, length }: any) => keyframes`
+const stairAnime = keyframes`
 0%{
     opacity:0;
 }
 100%{
-    opacity:1;
+    opacity:0.8;
 }
 `;
 
@@ -48,12 +48,11 @@ const StairPiece = styled.div<{ color: string; index: number; length: number }>`
   height: 60px;
   border-radius: 10px;
   position: absolute;
-  opacity: 0.8;
   background-color: ${({ color }) => color};
   margin-left: ${({ index, length }) => `${index * (100 / length)}%`};
   margin-top: ${({ index, length }) => `${(length - index) * 40}px`};
   animation: ${stairAnime} 2s;
-  animation-delay: ${({ index }) => `${index * 0.5}s`};
+  animation-delay: ${({ index }) => `${index * 0.3}s`};
   opacity: 0;
   animation-fill-mode: forwards;
 `;
