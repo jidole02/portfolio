@@ -27,10 +27,13 @@ const Header = () => {
 export default Header;
 
 const Wrapper = styled.header`
-  width: 100%;
   padding-top: 35px;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  z-index: 2;
+  padding-bottom: 10px;
+  width: inherit;
 `;
 
 const MenuContainer = styled.div`

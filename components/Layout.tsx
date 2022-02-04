@@ -14,17 +14,20 @@ const Layout = ({ children }: LayoutProps) => {
       <style jsx global>
         {`
           * {
-            transition: 0.3s;
+            transition: 0.5s;
             color: white;
           }
           :root {
             --base-text-color: ${currentThema === "dark" ? "white" : "black"};
             --main-color: ${currentThema === "dark" ? "#2DFFDB" : "#00A589"};
             --sub-color: ${currentThema === "dark" ? "#D8FFED" : "#009751"};
-            --grey100: ${currentThema === "dark" ? "#2E2E2E" : "#FFFFFF"};
+            --grey100: ${currentThema === "dark" ? "#1B2630" : "#FFFFFF"};
           }
           body {
-            background: ${currentThema === "dark" ? "#0C1020" : "#F5FCFF"};
+            background: ${currentThema === "dark" ? "#0C1020" : "#EEFAFF"};
+          }
+          header {
+            background: ${currentThema === "dark" ? "#0C1020" : "#EEFAFF"};
           }
         `}
       </style>
@@ -42,4 +45,5 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   width: 1480px;
+  position: relative;
 `;
