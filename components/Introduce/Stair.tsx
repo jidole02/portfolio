@@ -1,0 +1,45 @@
+import styled from "@emotion/styled";
+
+const Stair = () => {
+  const stairArr = [
+    "#6891FF",
+    "#68B4FF",
+    "#68E0FF",
+    "#68FFEA",
+    "#68FFC3",
+    "#68FF90",
+    "#85FF68",
+    "#F0FF68",
+  ];
+  return (
+    <Wrapper>
+      {stairArr.map((color, index) => (
+        <StairPiece
+          key={index}
+          color={color}
+          index={index}
+          length={stairArr.length}
+        />
+      ))}
+    </Wrapper>
+  );
+};
+
+export default Stair;
+
+const Wrapper = styled.div`
+  width: 100%;
+  position: absolute;
+  margin-top: 200px;
+`;
+
+const StairPiece = styled.div<{ color: string; index: number; length: number }>`
+  width: 230px;
+  height: 60px;
+  border-radius: 10px;
+  position: absolute;
+  opacity: 0.8;
+  background-color: ${({ color }) => color};
+  margin-left: ${({ index, length }) => `${index * (100 / length)}%`};
+  margin-top: ${({ index, length }) => `${(length - index) * 40}px`};
+`;

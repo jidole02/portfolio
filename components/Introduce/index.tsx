@@ -1,11 +1,13 @@
 import styled from "@emotion/styled";
 import Contact from "./Contact";
+import Stair from "./Stair";
 import TextContent from "./TextContent";
 
 const Introduce = () => {
   return (
     <Wrapper>
       <Container>
+        <Stair />
         <TextContent />
         <Contact />
       </Container>
