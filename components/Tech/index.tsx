@@ -50,7 +50,7 @@ export default Tech;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 50vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,7 +64,7 @@ const Line = styled.div`
 `;
 
 const TechText = styled.span<{ rand: number; toggle: number }>`
-  color: var(--base-text-color);
+  color: var(--sub-color);
   font-size: ${({ rand }) => `${rand * 8}px`};
   transition: 0.2s;
   text-transform: ${({ toggle }) => (toggle === 0 ? "uppercase" : "none")};
@@ -84,7 +84,7 @@ const anime = keyframes`
 
 const ChangeTextSizeButton = styled.button`
   font-size: 20px;
-  color: var(--sub-color);
+  color: var(--main-color);
   margin-bottom: 30px;
   animation: ${anime} 1s infinite linear;
   &:hover {
