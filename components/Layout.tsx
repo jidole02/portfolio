@@ -26,6 +26,14 @@ const Layout = ({ children }: LayoutProps) => {
           body {
             background: ${currentThema === "dark" ? "#0C1020" : "#EEFAFF"};
           }
+          body::-webkit-scrollbar-track {
+            background: none;
+          }
+          body::-webkit-scrollbar-thumb {
+            background-color: ${currentThema === "dark"
+              ? "#2DFFDB"
+              : "#00A589"};
+          }
           header {
             background: ${currentThema === "dark" ? "#0C1020" : "#EEFAFF"};
           }

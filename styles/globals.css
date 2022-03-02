@@ -6,6 +6,10 @@ body {
   margin: 0;
 }
 
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Noto Sans KR", sans-serif;
