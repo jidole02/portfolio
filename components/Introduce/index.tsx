@@ -19,6 +19,7 @@ export default Introduce;
 
 const Wrapper = styled.div`
   padding-top: 170px;
+  height: 100vh; ;
 `;
 
 const Container = styled.div`

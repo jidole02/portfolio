@@ -52,6 +52,7 @@ const Wrapper = styled.div`
   animation: ${wrapperAnime} 1s;
   animation-fill-mode: forwards;
   animation-delay: 3s;
+  margin-right: 10px;
   & button {
     width: 60px;
     height: 60px;
