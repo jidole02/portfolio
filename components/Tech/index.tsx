@@ -30,11 +30,15 @@ const Tech = () => {
 
   return (
     <Wrapper>
-      <ChangeTextSizeButton onClick={() => setToggle(!toggle)}>
+      <ChangeTextSizeButton
+        onClick={() => setToggle(!toggle)}
+        className="anime"
+        id="anime"
+      >
         여기를 눌러보세요!
       </ChangeTextSizeButton>
       {doubleArr.map((arr: any[], index) => (
-        <Line key={index}>
+        <Line key={index} className="anime">
           {arr.map((tech, index) => (
             <TechText rand={rand(3, 10)} toggle={index % 2} key={index}>
               {tech}
@@ -61,6 +65,7 @@ const Line = styled.div`
   display: flex;
   gap: 25px;
   align-items: center;
+  transition: 3s;
 `;
 
 const TechText = styled.span<{ rand: number; toggle: number }>`
@@ -86,7 +91,8 @@ const ChangeTextSizeButton = styled.button`
   font-size: 20px;
   color: var(--main-color);
   margin-bottom: 30px;
-  animation: ${anime} 1s infinite linear;
+  /*   animation: ${anime} 1s infinite linear; */
+  transition: 1s;
   &:hover {
     opacity: 1;
     animation: none;

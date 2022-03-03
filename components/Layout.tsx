@@ -1,7 +1,8 @@
-import { useRecoilValue } from "recoil";
-import { themaState } from "../recoil/atom";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { scrollY, themaState } from "../recoil/atom";
 import styled from "@emotion/styled";
 import Header from "./Header/index";
+import { useEffect } from "react";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,6 +10,13 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const currentThema = useRecoilValue(themaState);
+  const [scrollValue, setScrollValue] = useRecoilState(scrollY);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScrollValue(window.scrollY);
+    });
+  }, []);
   return (
     <Wrapper>
       <Header />

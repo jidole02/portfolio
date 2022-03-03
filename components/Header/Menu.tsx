@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { useEffect } from "react";
 import { keyframes } from "@emotion/react";
+import { useRecoilValue } from "recoil";
+import { scrollY } from "../../recoil/atom";
 
 interface Props {
   content: string;
@@ -10,19 +11,14 @@ interface Props {
 }
 
 const Menu = ({ content, from, to }: Props) => {
-  const [scrollY, setScrollY] = useState(0);
+  const scrollValue = useRecoilValue(scrollY);
   function moveScroll() {
     window.scrollTo({ top: from, behavior: "smooth" });
   }
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setScrollY(window.scrollY);
-    });
-  }, []);
   return (
     <Wrapper onClick={moveScroll}>
       <span>{content}</span>
-      {from <= scrollY && to > scrollY && <div />}
+      {from <= scrollValue && to > scrollValue && <div />}
     </Wrapper>
   );
 };
@@ -53,6 +49,6 @@ const Wrapper = styled.button`
     height: 6px;
     border-radius: 50%;
     margin-top: 10px;
-    animation: ${anime} 0.5s linear ;
+    animation: ${anime} 0.5s linear;
   }
 `;

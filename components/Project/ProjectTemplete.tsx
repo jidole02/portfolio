@@ -1,5 +1,8 @@
 import styled from "@emotion/styled";
 import { props } from "./interface";
+import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { scrollY } from "../../recoil/atom";
 
 const arr = [1, 2, 3, 4];
 
@@ -11,9 +14,17 @@ const ProjectTemplete = ({
   projectName,
   index,
 }: props) => {
+  const scrollValue = useRecoilValue(scrollY);
+  const [offsetTop, setOffsetTop] = useState(0);
+  useEffect(() => {
+    const temp = document.getElementById(`projectContainer${index}`)?.offsetTop;
+    temp && setOffsetTop(temp);
+  }, []);
   return (
     <Container
       style={index && index % 2 === 0 ? { alignItems: "flex-end" } : {}}
+      id={`projectContainer${index}`}
+      isNow={scrollValue + 600 > offsetTop}
     >
       <h1>{title}</h1>
       <p>{description}</p>
@@ -38,10 +49,13 @@ const ProjectTemplete = ({
 
 export default ProjectTemplete;
 
-const Container = styled.div`
+const Container = styled.div<{ isNow: boolean }>`
   width: 100%;
   display: flex;
   flex-direction: column;
+  opacity: ${({ isNow }) => (isNow ? 1 : 0)};
+  transition: 1s;
+  transform: ${({ isNow }) => (isNow ? 0 : "translateX(-60px) ")};
   & h1 {
     font-size: 35px;
     color: var(--base-text-color);
