@@ -1,19 +1,42 @@
 import styled from "@emotion/styled";
+import { useState } from "react";
+import { useEffect } from "react";
+import { keyframes } from "@emotion/react";
 
 interface Props {
   content: string;
+  from: number;
+  to: number;
 }
 
-const Menu = ({ content }: Props) => {
+const Menu = ({ content, from, to }: Props) => {
+  const [scrollY, setScrollY] = useState(0);
+  function moveScroll() {
+    window.scrollTo({ top: from, behavior: "smooth" });
+  }
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScrollY(window.scrollY);
+    });
+  }, []);
   return (
-    <Wrapper>
+    <Wrapper onClick={moveScroll}>
       <span>{content}</span>
-      {content === "소개" && <div />}
+      {from <= scrollY && to > scrollY && <div />}
     </Wrapper>
   );
 };
 
 export default Menu;
+
+const anime = keyframes`
+  0%{
+    opacity:0;
+  }
+  100%{
+    opacity:1;
+  }
+`;
 
 const Wrapper = styled.button`
   display: flex;
@@ -30,5 +53,6 @@ const Wrapper = styled.button`
     height: 6px;
     border-radius: 50%;
     margin-top: 10px;
+    animation: ${anime} 0.5s linear ;
   }
 `;

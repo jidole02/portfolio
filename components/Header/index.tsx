@@ -1,15 +1,21 @@
 import styled from "@emotion/styled";
 import ThemaToggleButton from "./ThemaToggleButton";
 import Menu from "./Menu";
+import { useEffect } from "react";
 
 const Header = () => {
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      console.log(window.scrollY);
+    });
+  }, []);
   return (
     <Wrapper>
       <Container>
         <MenuContainer>
-          <Menu content="소개" />
-          <Menu content="기술스택" />
-          <Menu content="프로젝트" />
+          <Menu content="소개" from={0} to={680} />
+          <Menu content="기술스택" from={680} to={1510} />
+          <Menu content="프로젝트" from={1510} to={4000} />
           <Menu content="그외" />
         </MenuContainer>
         <ThemaToggleButton />
