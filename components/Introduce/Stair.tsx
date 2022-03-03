@@ -1,7 +1,11 @@
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
+import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { scrollY } from "../../recoil/atom";
 
 const Stair = () => {
+  const scrollValue = useRecoilValue(scrollY);
   const stairArr = [
     "#6891FF",
     "#68B4FF",
@@ -14,14 +18,24 @@ const Stair = () => {
   ];
   return (
     <Wrapper>
-      {stairArr.map((color, index) => (
-        <StairPiece
-          key={index}
-          color={color}
-          index={index}
-          length={stairArr.length}
-        />
-      ))}
+      {stairArr.map((color, index) => {
+        const [stairOffset, setStairOffset] = useState(0);
+        useEffect(() => {
+          const stair: any =
+            document && document.getElementById(`stair${index}`)?.offsetTop;
+          setStairOffset(stair);
+        }, []);
+        return (
+          <StairPiece
+            id={`stair${index}`}
+            key={index}
+            color={color}
+            index={index}
+            length={stairArr.length}
+            isOut={scrollValue > stairOffset}
+          />
+        );
+      })}
     </Wrapper>
   );
 };
@@ -43,7 +57,12 @@ const stairAnime = keyframes`
 }
 `;
 
-const StairPiece = styled.div<{ color: string; index: number; length: number }>`
+const StairPiece = styled.div<{
+  color: string;
+  index: number;
+  length: number;
+  isOut: boolean;
+}>`
   width: 230px;
   height: 60px;
   border-radius: 10px;
@@ -55,4 +74,6 @@ const StairPiece = styled.div<{ color: string; index: number; length: number }>`
   animation-delay: ${({ index }) => `${index * 0.3}s`};
   opacity: 0;
   animation-fill-mode: forwards;
+  transform: ${({ isOut }) => (isOut ? `translateX(calc(100vw + 230px))` : ``)};
+  transition: 2s;
 `;
