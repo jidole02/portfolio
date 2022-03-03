@@ -7,11 +7,13 @@ const Project = () => {
     <Wrapper>
       {ProjectArray.map((project, index) => (
         <ProjectTemplete
+          key={index}
           title={project.title}
           description={project.description}
           tag={project.tag}
           stack={project.stack}
           projectName={project.projectName}
+          index={index + 1}
         />
       ))}
     </Wrapper>
@@ -23,5 +25,6 @@ export default Project;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  gap: 100px;
+  padding-bottom: 100px;
 `;

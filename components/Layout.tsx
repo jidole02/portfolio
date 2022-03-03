@@ -1,6 +1,7 @@
 import { useRecoilValue } from "recoil";
 import { themaState } from "../recoil/atom";
 import styled from "@emotion/styled";
+import Header from "./Header/index";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,6 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
   const currentThema = useRecoilValue(themaState);
   return (
     <Wrapper>
+      <Header />
       <Container>{children}</Container>
       <style jsx global>
         {`
@@ -22,8 +24,10 @@ const Layout = ({ children }: LayoutProps) => {
             --main-color: ${currentThema === "dark" ? "#2DFFDB" : "#00A589"};
             --sub-color: ${currentThema === "dark" ? "#D8FFED" : "#009751"};
             --grey100: ${currentThema === "dark" ? "#1B2630" : "#FFFFFF"};
+            --main-width: 1480px;
           }
-          body {
+          body,
+          .headercover {
             background: ${currentThema === "dark" ? "#0C1020" : "#EEFAFF"};
           }
           body::-webkit-scrollbar-track {
@@ -52,6 +56,6 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-  width: 1480px;
+  width: var(--main-width);
   position: relative;
 `;

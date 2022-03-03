@@ -9,9 +9,12 @@ const ProjectTemplete = ({
   tag,
   stack,
   projectName,
+  index,
 }: props) => {
   return (
-    <Container>
+    <Container
+      style={index && index % 2 === 0 ? { alignItems: "flex-end" } : {}}
+    >
       <h1>{title}</h1>
       <p>{description}</p>
       <HashTagContainer>
