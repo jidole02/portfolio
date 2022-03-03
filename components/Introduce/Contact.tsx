@@ -28,7 +28,7 @@ const Contact = () => {
       />
       <Button
         children={<Insta />}
-        adress="https://www.instagram.com/jidole041214/"
+        adress="https://www.instagram.com/ji_won_1214/"
       />
     </Wrapper>
   );
