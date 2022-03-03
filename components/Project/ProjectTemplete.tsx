@@ -93,7 +93,7 @@ const ImageContainer = styled.div`
     cursor: pointer;
     &:hover {
       box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
-      transform: scale(1.7);
+      transform: scale(1.4);
     }
   }
 `;

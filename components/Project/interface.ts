@@ -6,7 +6,11 @@ export type stack =
   | "Redux"
   | "Typescript"
   | "XD"
-  | "Figma";
+  | "Figma"
+  | "Soket"
+  | "express"
+  | "mongo DB"
+  | "node JS";
 
 export interface props {
   title: string;
