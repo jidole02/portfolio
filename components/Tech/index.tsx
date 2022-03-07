@@ -17,6 +17,7 @@ const Tech = () => {
         let temp = JSON.parse(JSON.stringify(tempArr));
         result.push(temp);
         tempArr.length = 0;
+        8;
       }
     }
     setDoubleArr(result);
@@ -39,11 +40,19 @@ const Tech = () => {
       </ChangeTextSizeButton>
       {doubleArr.map((arr: any[], index) => (
         <Line key={index} className="anime">
-          {arr.map((tech, index) => (
-            <TechText rand={rand(3, 10)} toggle={index % 2} key={index}>
-              {tech}
-            </TechText>
-          ))}
+          {arr.map((tech, index) => {
+            const randVal = rand(3, 10);
+            return (
+              <TechText
+                rand={randVal}
+                style={{ opacity: randVal / 8 }}
+                toggle={index % 2}
+                key={index}
+              >
+                {tech}
+              </TechText>
+            );
+          })}
         </Line>
       ))}
     </Wrapper>
@@ -58,7 +67,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
 `;
 
 const Line = styled.div`

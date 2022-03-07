@@ -9,7 +9,7 @@ export const ThechArr = [
   "recoil",
   "git",
   "github",
-  "scss",
-  "webpack",
-  "redux",
+  "XD",
+  "Redux",
+  "figma",
 ];
