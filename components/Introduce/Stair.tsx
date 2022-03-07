@@ -68,7 +68,7 @@ const StairPiece = styled.div<{
   border-radius: 10px;
   position: absolute;
   background-color: ${({ color }) => color};
-  margin-left: ${({ index, length }) => `${index * (100 / length)}%`};
+  margin-left: ${({ index, length }) => `${index * (100 / length - 0.5)}%`};
   margin-top: ${({ index, length }) => `${(length - index) * 40}px`};
   animation: ${stairAnime} 2s;
   animation-delay: ${({ index }) => `${index * 0.3}s`};
