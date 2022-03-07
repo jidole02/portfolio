@@ -24,7 +24,7 @@ const ProjectTemplete = ({
     <Container
       style={index && index % 2 === 0 ? { alignItems: "flex-end" } : {}}
       id={`projectContainer${index}`}
-      isNow={scrollValue + 600 > offsetTop}
+      isNow={scrollValue + 650 > offsetTop}
     >
       <h1>{title}</h1>
       <p>{description}</p>
