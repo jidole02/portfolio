@@ -7,7 +7,7 @@ export type stack =
   | "Typescript"
   | "XD"
   | "Figma"
-  | "Soket"
+  | "Socket"
   | "express"
   | "mongo DB"
   | "node JS";
